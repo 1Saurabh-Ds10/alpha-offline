@@ -5,9 +5,6 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
-import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
-import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -19,11 +16,7 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-
-        @Override
-        protected String getJSBundleFile() {
-        return CodePush.getJSBundleFile();
-        }
+      
     
     @Override
     public boolean getUseDeveloperSupport() {
@@ -35,10 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new VectorIconsPackage(),
-            new SvgPackage(),
-            new SplashScreenReactPackage(),
-            new ReactNativePushNotificationPackage(),
-            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG)
+            new SvgPackage()
       );
     }
 

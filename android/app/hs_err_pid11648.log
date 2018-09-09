@@ -1,0 +1,81 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 16384 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:62), pid=11648, tid=14244
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_25-b18) (build 1.8.0_25-b18)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.25-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002f8e800):  JavaThread "main" [_thread_in_vm, id=14244, stack(0x0000000002f90000,0x0000000003090000)]
+
+Stack: [0x0000000002f90000,0x0000000003090000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x31667a]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ClassLoader.defineClass1(Ljava/lang/String;[BIILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;+27
+j  java.security.SecureClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;+12
+j  java.net.URLClassLoader.defineClass(Ljava/lang/String;Lsun/misc/Resource;)Ljava/lang/Class;+220
+j  java.net.URLClassLoader.access$100(Ljava/net/URLClassLoader;Ljava/lang/String;Lsun/misc/Resource;)Ljava/lang/Class;+3
+j  java.net.URLClassLoader$1.run()Ljava/lang/Class;+43
+j  java.net.URLClassLoader$1.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;+0
+j  java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class;+13
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+70
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+36
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+j  sun.launcher.LauncherHelper.checkAndLoadMain(ZILjava/lang/String;)Ljava/lang/Class;+93
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00000000158bb800 JavaThread "Service Thread" daemon [_thread_blocked, id=11860, stack(0x00000000170b0000,0x00000000171b0000)]
+  0x00000000158b2800 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=14992, stack(0x0000000016fb0000,0x00000000170b0000)]
+  0x00000000158b1800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=14776, stack(0x0000000016eb0000,0x0000000016fb0000)]
+  0x000000001585f800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=9472, stack(0x0000000016db0000,0x0000000016eb0000)]
+  0x000000001585d000 JavaThread "Attach Listener" daemon [_thread_blocked, id=14152, stack(0x0000000016cb0000,0x0000000016db0000)]
+  0x000000001585b800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5564, stack(0x0000000016bb0000,0x0000000016cb0000)]
+  0x000000000317f800 JavaThread "Finalizer" daemon [_thread_blocked, id=5324, stack(0x0000000016ab0000,0x0000000016bb0000)]
+  0x000000000317e800 JavaThread "Reference Handler" daemon [_thread_blocked, id=15732, stack(0x00000000169b0000,0x0000000016ab0000)]
+=>0x0000000002f8e800 JavaThread "main" [_thread_in_vm, id=14244, stack(0x0000000002f90000,0x0000000003090000)]
+
+Other Threads:
+  0x0000000015827000 VMThread [stack: 0x00000000168b0000,0x00000000169b0000] [id=6864]
+  0x00000000158be800 WatcherThread [stack: 0x00000000175b0000,0x00000000176b0000] [id=7284]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000000002f8e120] SystemDictionary_lock - owner thread: 0x0000000002f8e800
+
+Heap:
+ PSYoungGen      total 38400K, used 1996K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 6% used [0x00000000eab00000,0x00000000eacf33f0,0x00000000ecb80000)
+  from space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+  to   space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+ ParOldGen       total 87552K, used 0K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000c5580000)
+ Metaspace       used 2807K, capacity 4484K, committed 4736K, reserved 1056768K
+  class space    used 303K, capacity 384K, committed 384K, reserved 1048576K
+
